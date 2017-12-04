@@ -1,6 +1,6 @@
 {
   "name": "hexo-generator-author2",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Author generator plugin for Hexo.",
   "author": "David Z. Williams <dave@flex.io>",
   "main": "index.js",
