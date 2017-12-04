@@ -1,4 +1,4 @@
-# hexo-generator-author
+# hexo-generator-author2
 
 Author generator for [Hexo](https://hexo.io/).
 
@@ -32,11 +32,15 @@ author_generator:
   path: 'authors/'
   per_page: 10
   order_by: -date
+  url_map:
+    "John Smith": john-smith
+    "Sally Johnson": sally-johnson  
 ```
 
 - **path**: Root path for your author pages. (default = 'authors/')
 - **per_page**: Posts displayed per page. (0 = disable pagination)
 - **order_by**: Posts order. (Order by date descending by default)
+- **url_map**: Use a different name in url to make it more readable.
 
 ## License
 
