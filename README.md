@@ -18,7 +18,7 @@ author: John Smith
 
 An `author` attribute will be provided in the `post` variable and an `authors` attribute will be provided in the `site` variable.
 
-Hyphenated slugs will be created for each author. For the author "John Smith", the slug that will be created will be 'john-smith', which will be appended to the relative path specified in **config.yml**. In the case where the `author_generator` path is `authors/`, the full relative path for the author "John Smith" would be `/authors/john-smith`.
+Hyphenated slugs will be created for each author. For the author "John Smith", the slug that will be created will be `john-smith`, which will be appended to the relative path specified in **config.yml**. In the case where the `author_generator` path is `authors/`, the full relative path for the author "John Smith" would be `/authors/john-smith`.
 
 ## Helpers
 
