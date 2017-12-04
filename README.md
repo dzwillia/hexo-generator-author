@@ -32,9 +32,6 @@ author_generator:
   path: 'authors/'
   per_page: 10
   order_by: -date
-  url_map:
-    "John Smith": john-smith
-    "Sally Johnson": sally-johnson  
 ```
 
 - **path**: Root path for your author pages. (default = 'authors/')
