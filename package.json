@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/dzwillia/hexo-generator-author2#readme",
   "dependencies": {
-    "hexo-pagination": "0.0.2"
+    "hexo-pagination": "0.0.2",
+    "slug": "^0.9.1"
   }
 }

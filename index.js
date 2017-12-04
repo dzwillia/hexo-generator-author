@@ -1,6 +1,7 @@
 'use strict'
 
 var pagination = require('hexo-pagination')
+var slug = require('slug')
 
 if (typeof Array.prototype.unique === 'undefined') {
   Array.prototype.unique = function() { return Array.from(new Set(this)) }
@@ -12,7 +13,7 @@ function author_to_url(author) {
   const author_generator = config.author_generator || {}
   const index_generator = config.index_generator || {}
   const base_path = author_generator.path || index_generator.path || 'authors/'
-  const author_slug = (author_generator.url_map || {})[author] || author
+  const author_slug = slug(author, { lower: true })
   return root + base_path + author_slug
 }
 
