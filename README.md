@@ -1,11 +1,11 @@
 # hexo-generator-author
 
-Author generator for [Hexo].
+Author generator for [Hexo](https://hexo.io/).
 
 ## Installation
 
 ``` bash
-$ npm install hexo-generator-author --save
+$ npm install hexo-generator-author2 --save
 ```
 
 ## Usage
@@ -16,7 +16,14 @@ Add `author` in front matter.
 author: John Smith
 ```
 
-You get `author` attribute in `post` variable and `authors` attribute in `site` variable. There is also a helper function `list_authors()`.
+An `author` attribute will be provided in the `post` variable and an `authors` attribute will be provided in the `site` variable.
+
+Hyphenated slugs will be created for each other. For the author "John Smith" above, the slug that will be created will be 'jonh-smith', which will be appended to the relative path specified in **config.yml**. In the case where the `author_generator` path is `authors/`, the full relative path for the author "John Smith" would be `/authors/john-smith`.
+
+## Helpers
+
+- `author_to_url(author)`: This helper function can be called with the author's name as the first parameter and will return the full relative path to the author's list of posts.
+- `list_authors()`: This helper function outputs a basic list of authors as an unordered list.
 
 ## Options
 
@@ -25,15 +32,11 @@ author_generator:
   path: 'authors/'
   per_page: 10
   order_by: -date
-  url_map:
-    "John Smith": john-smith
-    "Kathy Bale": kathy-bale
 ```
 
 - **path**: Root path for your author pages. (default = 'authors/')
 - **per_page**: Posts displayed per page. (0 = disable pagination)
 - **order_by**: Posts order. (Order by date descending by default)
-- **url_map**: Use different name in url to make it more readable.
 
 ## License
 
