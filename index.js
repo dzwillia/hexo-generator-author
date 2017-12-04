@@ -7,7 +7,13 @@ if (typeof Array.prototype.unique === 'undefined') {
 }
 
 function author_to_url(author) {
-  return ((this.config.author_generator || {}).url_map || {})[author] || author
+  const config = this.config
+  const root = config.root || '/'
+  const author_generator = config.author_generator || {}
+  const index_generator = config.index_generator || {}
+  const base_path = author_generator.path || index_generator.path || 'authors/'
+  const author_slug = (author_generator.url_map || {})[author] || author
+  return root + base_path + author_slug
 }
 
 hexo.extend.filter.register('template_locals', function(locals) {
@@ -36,15 +42,13 @@ hexo.extend.generator.register('author', function(locals) {
   const author_generator = config.author_generator || {}
   const index_generator = config.index_generator || {}
 
-  const pagination_dir = config.pagination_dir || 'page'
-  const base_path = author_generator.path || index_generator.path || 'authors/'
-
   const posts = locals.posts
   const authors = posts.map(post => post.author).unique().map(author => ({ name: author, posts: posts.find({author}) }))
-  const per_page = author_generator.per_page || index_generator.per_page || this.config.per_page || 10
+  const per_page = author_generator.per_page || index_generator.per_page || config.per_page || 10
+  const pagination_dir = config.pagination_dir || 'page'
 
   return authors.reduce((result, author) => {
-    const path = base_path + author_to_url.call(this, author.name)
+    const path = author_to_url.call(this, author.name)
     const posts = author.posts.sort(author_generator.order_by || index_generator.order_by || '-date')
 
     const data = pagination(path, posts, {
