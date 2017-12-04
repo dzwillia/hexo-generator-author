@@ -37,7 +37,6 @@ author_generator:
 - **path**: Root path for your author pages. (default = 'authors/')
 - **per_page**: Posts displayed per page. (0 = disable pagination)
 - **order_by**: Posts order. (Order by date descending by default)
-- **url_map**: Use a different name in url to make it more readable.
 
 ## License
 
